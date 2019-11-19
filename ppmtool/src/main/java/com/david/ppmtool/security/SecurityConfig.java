@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js"
                 ).permitAll()
+                .antMatchers("/api/users/**").permitAll()
                 .anyRequest().authenticated(); // ovaj deo znaci da sve sto nije u okviru navedenog mora da bude autentifikovano
     }
 }

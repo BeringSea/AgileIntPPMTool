@@ -1,5 +1,6 @@
 package com.david.ppmtool.services;
 
+
 import com.david.ppmtool.domain.User;
 import com.david.ppmtool.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * @author David Mojicevic on 20/11/2019.
- */
 @Service
-public class CustomUserDetailsService implements UserDetailsService  {
+public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;

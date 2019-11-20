@@ -7,20 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * @author David Mojicevic on 19/11/2019.
- */
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser (User newUser){
-        newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
 
         try{
             newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
@@ -34,6 +31,9 @@ public class UserService {
         }catch (Exception e){
             throw new UsernameAlreadyExistsException("Username '"+newUser.getUsername()+"' already exists");
         }
+
     }
+
+
 
 }
